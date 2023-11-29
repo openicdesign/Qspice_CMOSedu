@@ -1,0 +1,17 @@
+* .\Fig1_34.asc
+Vin Vin 0 pulse (-1 1 0 1u 1u 2m 4m) DC 0 AC 1
+XX1 Vm 0 Vout ideal_op_amp
+Rin Vin Vm 1k
+C1 Vout Vm 1u
+
+* block symbol definitions
+.subckt ideal_op_amp Vinm Vinp Out
+Gnn1 Out 0 Vinm Vinp 1Meg
+R1 Out 0 100
+.ends ideal_op_amp
+
+.tran 10m
+.ic V(Vout)=1
+.plot V(Vout) V(Vin)
+.backanno
+.end
